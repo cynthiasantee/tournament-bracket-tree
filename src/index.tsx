@@ -10,6 +10,19 @@ const Children: React.FC = (props) => {
   </div>
 }
 
+function calcDepth<T>(tree: TreeWithTags<T>): number {
+  switch(tree.tag) {
+    case 'binary':
+      return 1 + Math.max(calcDepth(tree.left), calcDepth(tree.right));
+    case 'unary':
+      return 1 + calcDepth(tree.next);
+    case 'leaf':
+      return 1;
+  }
+
+  return 0;
+}
+
 type MapDataToNode<T> = (t: T) => React.ReactElement
 
 function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, reverse?: boolean): React.ReactElement {
@@ -75,9 +88,11 @@ export function BracketGenerator<T>(props: Props<T>) {
     }
   }
 
+  const treeWithTags = tagTree(props.tree)
+
   return(
     <div className={styles.container}>
-      {toComponent(tagTree(props.tree), 5, props.mapDataToNode, props.reverse)}
+      {toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, props.reverse)}
     </div>
   )
 }

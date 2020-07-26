@@ -29,6 +29,12 @@ const App = () => {
         data: {
           img: 'https://upload.wikimedia.org/wikipedia/en/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
           link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
+        },
+        left: {
+          data: {
+            img: 'https://upload.wikimedia.org/wikipedia/en/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
+            link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
+          }
         }
       },
       right: {
@@ -42,7 +48,7 @@ const App = () => {
 
   const mapShowToNode = (show: Show) => {
     return <div>
-      <a href={show.link}><img height="50px" src={show.img}/></a>
+      <a href={show.link}><img height="50px" src={show.img} alt="link"/></a>
     </div>;
   }
 
