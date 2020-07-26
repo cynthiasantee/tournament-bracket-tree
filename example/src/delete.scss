@@ -1,0 +1,111 @@
+html
+	font-size: 1rem
+body
+	background: #f0f2f2
+.bracket
+	display: inline-block
+	position: absolute
+	left: 50%
+	top: 50%
+	transform: translate(-50%, -50%)
+	white-space: nowrap
+	font-size: 0
+	.round
+		display: inline-block
+		vertical-align: middle
+		.winners
+			& > div
+				display: inline-block
+				vertical-align: middle
+				&.matchups
+					.matchup
+						&:last-child
+							margin-bottom: 0 !important
+						.participants
+							border-radius: 0.25rem
+							overflow: hidden
+							.participant
+								box-sizing: border-box
+								color: #858585
+								border-left: 0.25rem solid #858585
+								background: white
+								width: 14rem
+								height: 3rem
+								box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12)
+								&.winner
+									color: #60c645
+									border-color: #60c645
+								&.loser
+									color: #dc563f
+									border-color: #dc563f
+								&:not(:last-child)
+									border-bottom: thin solid #f0f2f2
+								span
+									margin: 0 1.25rem
+									line-height: 3
+									font-size: 1rem
+									font-family: "Roboto Slab"
+				&.connector
+					&.filled
+						.line, &.bottom .merger:after, &.top .merger:before
+							border-color: #60c645
+					.line, .merger
+						box-sizing: border-box
+						width: 2rem
+						display: inline-block
+						vertical-align: top
+					.line
+						border-bottom: thin solid #c0c0c8
+						height: 4rem
+					.merger
+						position: relative
+						height: 8rem
+						&:before, &:after
+							content: ""
+							display: block
+							box-sizing: border-box
+							width: 100%
+							height: 50%
+							border: 0 solid
+							border-color: #c0c0c8
+						&:before
+							border-right-width: thin
+							border-top-width: thin
+						&:after
+							border-right-width: thin
+							border-bottom-width: thin
+		&.quarterfinals
+			.winners
+				&:not(:last-child)
+					margin-bottom: 2rem
+				.matchups
+					.matchup
+						&:not(:last-child)
+							margin-bottom: 2rem
+						.participants
+							.participant
+		&.semifinals
+			.winners
+				.matchups
+					.matchup
+						&:not(:last-child)
+							margin-bottom: 10rem
+						.participants
+							.participant
+				.connector
+					.merger
+						height: 16rem
+					.line
+						height: 8rem
+		&.finals
+			.winners
+				.matchups
+					.matchup
+						.participants
+							.participant
+				.connector
+					.merger
+						height: 3rem
+					.line
+						height: 1.5rem
+		&.champion

@@ -1,0 +1,37 @@
+/* add css module styles here (optional) */
+
+.test {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+.outer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.container {
+  width: 1000px;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.children {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.child {
+  flex: 1;
+}
