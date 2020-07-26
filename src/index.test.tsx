@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import { BracketGenerator } from '.'
 
-describe('ExampleComponent', () => {
+describe('BracketGeneratort', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(BracketGenerator).toBeTruthy()
   })
 })
