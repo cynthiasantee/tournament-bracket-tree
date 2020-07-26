@@ -29,17 +29,17 @@ export class Node {
     }
 }
 
-export class Tree {
-    private head: Node | null;
-    constructor() {
-        this.head = null
-    }
+// export class Tree {
+//     private head: Node | null;
+//     constructor() {
+//         this.head = null
+//     }
 
-    addNode(data: number) {
-        if (this.head === null) {
-            this.head = new Node(data)
-        } else {
-            
-        }
-    }
-}
+//     addNode(data: number) {
+//         if (this.head === null) {
+//             this.head = new Node(data)
+//         } else {
+
+//         }
+//     }
+// }

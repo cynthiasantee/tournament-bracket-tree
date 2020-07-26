@@ -13,6 +13,13 @@
   border: 1px solid black;
 }
 
+.outer-reverse {
+  display: flex;
+  width: 100%;
+  flex-direction: column-reverse;
+  border: 1px solid black;
+}
+
 .container {
   width: 1000px;
 }
