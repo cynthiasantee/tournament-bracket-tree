@@ -1,39 +1,57 @@
-export interface Tree <T>{
+export interface BinaryTreeNode <T> {
     data: T,
-    right: Tree<T> | null,
-    left: Tree<T> | null
+    right: Tree<T>,
+    left: Tree<T>,
+    tag: "binary"
 }
+
+export interface UnaryTreeNode <T> {
+    data: T,
+    next: Tree<T>,
+    tag: "unary"
+}
+
+export interface LeafNode <T> {
+    data: T,
+    tag: "leaf"
+}
+
+export interface DummyNode {
+    tag: "dummy"
+}
+// ADT - Algabraic Data Type
+export type Tree<T> = BinaryTreeNode<T> | UnaryTreeNode<T> | LeafNode<T> | DummyNode;
 
 export const t: Tree<number> =
     {   
         data: 1,
-
-        left:     {   
+        left: {   
             data: 2,
             left: {   
                 data: 4,
-                left: null,
-                right: null
-
+                next: {
+                    data: 7,
+                    tag: 'unary',
+                    next: {
+                        data: 8,
+                        tag: 'leaf'
+                    }
+                },
+                tag: "unary"
             },
             right: {   
                 data: 5,
-                left: null,
-                right: null
-            }
+                tag: "leaf"
+            },
+            tag: "binary"
         },
-
         right:     {   
             data: 3,
-            left: {   
+            next: {   
                 data: 6,
-                left: null,
-                right: null
+                tag: "leaf"
             },
-            right: {   
-                data: 7,
-                left: null,
-                right: null
-            }
-        }
+            tag: "unary"
+        },
+        tag: "binary"
     }
