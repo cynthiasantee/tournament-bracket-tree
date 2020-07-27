@@ -25,8 +25,8 @@ function calcDepth<T>(tree: TreeWithTags<T>): number {
 
 type MapDataToNode<T> = (t: T) => React.ReactElement
 
-function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, reverse?: boolean): React.ReactElement {
-  const rec = (t: TreeWithTags<T>) => toComponent(t, depth - 1, mapDataToNode, reverse);
+function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, isRoot: boolean,reverse?: boolean): React.ReactElement {
+  const rec = (t: TreeWithTags<T>) => toComponent(t, depth - 1, mapDataToNode, false, reverse);
 
   switch(tree.tag) {
     case 'dummy':
@@ -36,7 +36,9 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       } else {
         return ( 
           <div className={styles.outer}>
+            <div className={styles.spacerContainer}></div>
             <div className={styles.parent}></div>
+            <div className={styles.spacerContainer}></div>
             <Children>
               {rec(tree)}
             </Children>
@@ -46,7 +48,16 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
     case 'leaf':
       return (
         <div className={styles.outer}>
+
+          <div className={styles.spacerContainer}>
+            {
+              !isRoot && <div className={[styles.spacer, styles.borderRight].join(' ')}></div>
+            }
+            <div className={styles.spacer}></div>
+          </div>
+
             <div className={styles.parent}>{mapDataToNode(tree.data)}</div>
+            <div className={styles.spacerContainer}></div>
             {
               depth !== 0 && (
               <Children>
@@ -54,25 +65,61 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
               </Children>
               )
             }
+
+
         </div>
       );
     case 'unary':
       return (
         <div className={styles.outer}>
+
+          <div className={styles.spacerContainer}>
+          {
+              !isRoot && <div className={[styles.spacer, styles.borderRight].join(' ')}></div>
+            }
+            <div className={styles.spacer}></div>
+          </div>
+
             <div className={styles.parent}>{mapDataToNode(tree.data)}</div>
+            <div className={styles.spacerContainer}>
+            <div className={[styles.spacer, styles.borderRight].join(' ')}></div>
+            <div className={styles.spacer}></div>
+          </div>
+            
             <Children>
               {rec(tree.next)}
             </Children>
+
+
         </div>
       );
     case 'binary':
       return (
         <div className={styles.outer}>
+            
+            <div className={styles.spacerContainer}>
+            {
+              !isRoot && <div className={[styles.spacer, styles.borderRight].join(' ')}></div>
+            }
+            <div className={styles.spacer}></div>
+          </div>
+            
             <div className={styles.parent}>{mapDataToNode(tree.data)}</div>
+
+            <div className={styles.spacerContainer}>
+            <div className={styles.spacer}></div>
+            <div className={[styles.spacer, styles.borderRight, styles.borderBottom].join(' ')}></div>
+            <div className={[styles.spacer, styles.borderBottom].join(' ')}></div>
+             <div className={styles.spacer}></div>
+             </div>
+
             <Children>
               {rec(tree.left)}
               {rec(tree.right)}
             </Children>
+
+
+
         </div>
       );
   }  
@@ -116,10 +163,11 @@ export function BracketGenerator<T>(props: Props<T>) {
   }
 
   const treeWithTags = tagTree(props.tree)
+  console.log(treeWithTags);
 
   return(
     <div className={styles.container}>
-      {toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, props.reverse)}
+      {toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, true,  props.reverse)}
     </div>
   )
 }

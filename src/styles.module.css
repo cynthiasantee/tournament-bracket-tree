@@ -28,7 +28,6 @@
   justify-content: center;
   align-items: center;
   height: 50px;
-  border: 1px solid black;
 }
 
 .spacerContainer {
@@ -41,7 +40,7 @@
   flex: 1;
 }
 
-.border-right {
+.borderRight {
   border-right: 1px solid black;
 }
 
@@ -53,4 +52,8 @@
 
 .child {
   flex: 1;
+}
+
+.borderBottom {
+  border-bottom: 1px solid black;
 }
