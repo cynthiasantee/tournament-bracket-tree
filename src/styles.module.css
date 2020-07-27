@@ -19,10 +19,6 @@
   border: 1px solid black;
 }
 
-.container {
-  width: 1000px;
-}
-
 .parent {
   display: flex;
   justify-content: center;

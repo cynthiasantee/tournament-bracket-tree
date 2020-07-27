@@ -165,11 +165,7 @@ export function BracketGenerator<T>(props: Props<T>) {
   const treeWithTags = tagTree(props.tree)
   console.log(treeWithTags);
 
-  return(
-    <div className={styles.container}>
-      {toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, true,  props.reverse)}
-    </div>
-  )
+  return toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, true,  props.reverse);
 }
 
 export * from './tree';
