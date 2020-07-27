@@ -10,7 +10,6 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  border: 1px solid black;
 }
 
 .outer-reverse {
@@ -29,14 +28,27 @@
   justify-content: center;
   align-items: center;
   height: 50px;
-  /* border: 1px solid black; */
+  border: 1px solid black;
+}
+
+.spacerContainer {
+  display: flex;
+  width: 100%;
+  height: 25px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.border-right {
+  border-right: 1px solid black;
 }
 
 .children {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid black; */
 }
 
 .child {

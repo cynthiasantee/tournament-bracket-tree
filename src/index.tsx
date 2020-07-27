@@ -27,29 +27,56 @@ type MapDataToNode<T> = (t: T) => React.ReactElement
 
 function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, reverse?: boolean): React.ReactElement {
   const rec = (t: TreeWithTags<T>) => toComponent(t, depth - 1, mapDataToNode, reverse);
-  
-  if (depth === 0) {
-    return <div></div>
-  } else {
-    let comp;
-    
-    if (tree.tag === 'binary') {
-      comp = <Children>
-          {rec(tree.left)}
-          {rec(tree.right)}
-        </Children>
-    } else if (tree.tag === 'unary') {
-      comp = <Children>{rec(tree.next)}</Children>
-    } else if (tree.tag === 'leaf' || tree.tag === 'dummy') {
-      comp = <Children>{rec({tag: 'dummy'})}</Children>;
-    }
-    return <div className={reverse ? styles[`outer-reverse`] : styles.outer}>
-      <div className={styles.parent}>
-        {tree.tag === 'dummy' ? '' : mapDataToNode(tree.data)}
-      </div>
-      {comp}
-    </div>
-  }
+
+  switch(tree.tag) {
+    case 'dummy':
+      // return empty divs until depth is 0
+      if (depth === 0) {
+        return <div></div>;
+      } else {
+        return ( 
+          <div className={styles.outer}>
+            <div className={styles.parent}></div>
+            <Children>
+              {rec(tree)}
+            </Children>
+          </div>
+        );
+      }
+    case 'leaf':
+      return (
+        <div className={styles.outer}>
+            <div className={styles.parent}>{mapDataToNode(tree.data)}</div>
+            {
+              depth !== 0 && (
+              <Children>
+                {rec({tag: 'dummy'})}
+              </Children>
+              )
+            }
+        </div>
+      );
+    case 'unary':
+      return (
+        <div className={styles.outer}>
+            <div className={styles.parent}>{mapDataToNode(tree.data)}</div>
+            <Children>
+              {rec(tree.next)}
+            </Children>
+        </div>
+      );
+    case 'binary':
+      return (
+        <div className={styles.outer}>
+            <div className={styles.parent}>{mapDataToNode(tree.data)}</div>
+            <Children>
+              {rec(tree.left)}
+              {rec(tree.right)}
+            </Children>
+        </div>
+      );
+  }  
+
 }
 
 interface Props<T> {
