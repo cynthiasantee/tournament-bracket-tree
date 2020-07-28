@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styles from './styles.module.css'
-import { Tree, TreeWithTags } from './treeInterface'
+import { Tree, TreeWithTags, Root } from './treeInterface'
 
 const Children: React.FC = (props) => {
   return <div className={styles.children}>
@@ -25,8 +25,8 @@ function calcDepth<T>(tree: TreeWithTags<T>): number {
 
 type MapDataToNode<T> = (t: T) => React.ReactElement
 
-function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, dummyParent: React.ReactElement, isRoot: boolean,reverse?: boolean): React.ReactElement {
-  const rec = (t: TreeWithTags<T>) => toComponent(t, depth - 1, mapDataToNode, dummyParent, false, reverse);
+function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, dummyParent: React.ReactElement, isRoot: boolean, root?: Root): React.ReactElement {
+  const rec = (t: TreeWithTags<T>) => toComponent(t, depth - 1, mapDataToNode, dummyParent, false, root);
 
   switch(tree.tag) {
     case 'dummy':
@@ -35,7 +35,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
         return <div></div>;
       } else {
         return ( 
-          <div className={(reverse === undefined || reverse === false ? styles.outer : styles.outerReverse)}>
+          <div className={root !== "bottom" ? styles.outer : styles.outerReverse}>
             <div className={styles.spacerContainer}></div>
         <div className={[styles.parent, styles.hide].join(' ')}>
           <div>{dummyParent}</div>
@@ -49,7 +49,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       }
     case 'leaf':
       return (
-        <div className={(reverse === undefined || reverse === false ? styles.outer : styles.outerReverse)}>
+        <div className={root !== "bottom" ? styles.outer : styles.outerReverse}>
 
           <div className={styles.spacerContainer}>
             {
@@ -73,7 +73,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       );
     case 'unary':
       return (
-        <div className={(reverse === undefined || reverse === false ? styles.outer : styles.outerReverse)}>
+        <div className={root !== "bottom"  ? styles.outer : styles.outerReverse}>
 
           <div className={styles.spacerContainer}>
           {
@@ -97,7 +97,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       );
     case 'binary':
       return (
-        <div className={(reverse === undefined || reverse === false ? styles.outer : styles.outerReverse)}>
+        <div className={root !== "bottom"  ? styles.outer : styles.outerReverse}>
             
             <div className={styles.spacerContainer}>
             {
@@ -110,8 +110,8 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
 
             <div className={styles.spacerContainer}>
             <div className={styles.spacer}></div>
-            <div className={(reverse === undefined || reverse === false) ? [styles.spacer, styles.borderRight, styles.borderBottom].join(' ') : [styles.spacer, styles.borderRight, styles.borderReverse].join(' ')}></div>
-            <div className={(reverse === undefined || reverse === false) ? [styles.spacer, styles.borderBottom].join(' ') : [styles.spacer, styles.borderReverse].join(' ')}></div>
+            <div className={root !== "bottom"  ? [styles.spacer, styles.borderRight, styles.borderBottom].join(' ') : [styles.spacer, styles.borderRight, styles.borderReverse].join(' ')}></div>
+            <div className={root !== "bottom"  ? [styles.spacer, styles.borderBottom].join(' ') : [styles.spacer, styles.borderReverse].join(' ')}></div>
              <div className={styles.spacer}></div>
              </div>
 
@@ -129,7 +129,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
 }
 
 interface Props<T> {
-  reverse?: boolean,
+  root?: Root,
   mapDataToNode: MapDataToNode<T>,
   tree: Tree<T>
 }
@@ -169,7 +169,7 @@ export function BracketGenerator<T>(props: Props<T>) {
 
   const dummyParent = props.mapDataToNode(props.tree.data)
 
-  return toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, dummyParent, true,  props.reverse);
+  return toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, dummyParent, true,  props.root);
 }
 
 export * from './treeInterface';

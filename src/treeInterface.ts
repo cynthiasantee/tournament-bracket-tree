@@ -28,6 +28,8 @@ export interface Tree<T> {
     right?: Tree<T>;
 }
 
+export type Root = "top" | "bottom" | "right" | "left";
+
 export const t: TreeWithTags<number> =
     {   
         data: 1,
