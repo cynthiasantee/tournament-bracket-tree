@@ -35,7 +35,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
         return <div></div>;
       } else {
         return ( 
-          <div className={root !== "bottom" ? styles.outer : styles.outerReverse}>
+          <div className={root !== "bottom" ? styles.outer : styles.outerBottom}>
             <div className={styles.spacerContainer}></div>
         <div className={[styles.parent, styles.hide].join(' ')}>
           <div>{dummyParent}</div>
@@ -49,7 +49,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       }
     case 'leaf':
       return (
-        <div className={root !== "bottom" ? styles.outer : styles.outerReverse}>
+        <div className={root !== "bottom" ? styles.outer : styles.outerBottom}>
 
           <div className={styles.spacerContainer}>
             {
@@ -73,7 +73,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       );
     case 'unary':
       return (
-        <div className={root !== "bottom"  ? styles.outer : styles.outerReverse}>
+        <div className={root !== "bottom"  ? styles.outer : styles.outerBottom}>
 
           <div className={styles.spacerContainer}>
           {
@@ -97,7 +97,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       );
     case 'binary':
       return (
-        <div className={root !== "bottom"  ? styles.outer : styles.outerReverse}>
+        <div className={root !== "bottom"  ? styles.outer : styles.outerBottom}>
             
             <div className={styles.spacerContainer}>
             {
@@ -110,8 +110,8 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
 
             <div className={styles.spacerContainer}>
             <div className={styles.spacer}></div>
-            <div className={root !== "bottom"  ? [styles.spacer, styles.borderRight, styles.borderBottom].join(' ') : [styles.spacer, styles.borderRight, styles.borderReverse].join(' ')}></div>
-            <div className={root !== "bottom"  ? [styles.spacer, styles.borderBottom].join(' ') : [styles.spacer, styles.borderReverse].join(' ')}></div>
+            <div className={root !== "bottom"  ? [styles.spacer, styles.borderRight, styles.borderBottom].join(' ') : [styles.spacer, styles.borderRight, styles.borderBottomDir].join(' ')}></div>
+            <div className={root !== "bottom"  ? [styles.spacer, styles.borderBottom].join(' ') : [styles.spacer, styles.borderBottomDir].join(' ')}></div>
              <div className={styles.spacer}></div>
              </div>
 

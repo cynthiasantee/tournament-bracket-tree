@@ -53,12 +53,12 @@
 }
 
 /* Reverse */
-.outerReverse {
+.outerBottom {
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
 }
 
-.borderReverse {
+.borderBottomDir {
   border-top: 1px solid black;
 }
