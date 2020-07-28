@@ -18,15 +18,15 @@ function calcDepth<T>(tree: TreeWithTags<T>): number {
       return 1 + calcDepth(tree.next);
     case 'leaf':
       return 1;
+    case 'dummy':
+      return 0;
   }
-
-  return 0;
 }
 
 type MapDataToNode<T> = (t: T) => React.ReactElement
 
-function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, isRoot: boolean,reverse?: boolean): React.ReactElement {
-  const rec = (t: TreeWithTags<T>) => toComponent(t, depth - 1, mapDataToNode, false, reverse);
+function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, dummyParent: React.ReactElement, isRoot: boolean,reverse?: boolean): React.ReactElement {
+  const rec = (t: TreeWithTags<T>) => toComponent(t, depth - 1, mapDataToNode, dummyParent, false, reverse);
 
   switch(tree.tag) {
     case 'dummy':
@@ -35,9 +35,11 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
         return <div></div>;
       } else {
         return ( 
-          <div className={styles.outer}>
+          <div className={(reverse === undefined || reverse === false ? styles.outer : styles.outerReverse)}>
             <div className={styles.spacerContainer}></div>
-            <div className={styles.parent}></div>
+        <div className={[styles.parent, styles.hide].join(' ')}>
+          <div>{dummyParent}</div>
+        </div>
             <div className={styles.spacerContainer}></div>
             <Children>
               {rec(tree)}
@@ -47,7 +49,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       }
     case 'leaf':
       return (
-        <div className={styles.outer}>
+        <div className={(reverse === undefined || reverse === false ? styles.outer : styles.outerReverse)}>
 
           <div className={styles.spacerContainer}>
             {
@@ -71,7 +73,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       );
     case 'unary':
       return (
-        <div className={styles.outer}>
+        <div className={(reverse === undefined || reverse === false ? styles.outer : styles.outerReverse)}>
 
           <div className={styles.spacerContainer}>
           {
@@ -95,7 +97,7 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       );
     case 'binary':
       return (
-        <div className={styles.outer}>
+        <div className={(reverse === undefined || reverse === false ? styles.outer : styles.outerReverse)}>
             
             <div className={styles.spacerContainer}>
             {
@@ -108,8 +110,8 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
 
             <div className={styles.spacerContainer}>
             <div className={styles.spacer}></div>
-            <div className={[styles.spacer, styles.borderRight, styles.borderBottom].join(' ')}></div>
-            <div className={[styles.spacer, styles.borderBottom].join(' ')}></div>
+            <div className={(reverse === undefined || reverse === false) ? [styles.spacer, styles.borderRight, styles.borderBottom].join(' ') : [styles.spacer, styles.borderRight, styles.borderReverse].join(' ')}></div>
+            <div className={(reverse === undefined || reverse === false) ? [styles.spacer, styles.borderBottom].join(' ') : [styles.spacer, styles.borderReverse].join(' ')}></div>
              <div className={styles.spacer}></div>
              </div>
 
@@ -165,8 +167,9 @@ export function BracketGenerator<T>(props: Props<T>) {
   const treeWithTags = tagTree(props.tree)
   console.log(treeWithTags);
 
-  return toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, true,  props.reverse);
+  const dummyParent = props.mapDataToNode(props.tree.data)
+
+  return toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, dummyParent, true,  props.reverse);
 }
 
-export * from './tree';
 export * from './treeInterface';
