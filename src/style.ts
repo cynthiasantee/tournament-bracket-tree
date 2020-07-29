@@ -43,7 +43,7 @@ export const style = ({
     right: {    
         outer: styles.outerRight,
         parent: styles.parentRight,
-        hide: styles.hide,
+        hide: styles.hideRight,
         spacerContainer: styles.spacerContainerRight,
         borderBottom: styles.borderBottom,
         borderTop: ``,
