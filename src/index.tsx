@@ -94,7 +94,6 @@ const style = generalStyle[root];
               {rec(tree.next)}
             </Children>
 
-
         </div>
       );
     case 'binary':
@@ -121,8 +120,6 @@ const style = generalStyle[root];
               {rec(tree.left)}
               {rec(tree.right)}
             </Children>
-
-
 
         </div>
       );

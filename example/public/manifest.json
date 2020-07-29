@@ -1,6 +1,6 @@
 {
-  "short_name": "react-tournament-bracket-generator",
-  "name": "react-tournament-bracket-generator",
+  "short_name": "tournament-bracket-tree",
+  "name": "tournament-bracket-tree",
   "icons": [
     {
       "src": "favicon.ico",

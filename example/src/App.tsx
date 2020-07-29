@@ -1,7 +1,6 @@
-import React from 'react'
-
-import { BracketGenerator, Tree} from 'react-tournament-bracket-generator'
-import 'react-tournament-bracket-generator/dist/index.css'
+import React from 'react';
+import { BracketGenerator, Tree} from 'tournament-bracket-tree';
+import 'tournament-bracket-tree/dist/index.css';
 
 const App = () => {
 

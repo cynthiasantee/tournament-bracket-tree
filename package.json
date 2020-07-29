@@ -1,10 +1,10 @@
 {
-  "name": "react-tournament-bracket-generator",
-  "version": "1.0.0",
+  "name": "tournament-bracket-tree",
+  "version": "0.0.0",
   "description": "Renders a simple tournament bracket",
   "author": "cynthiasantee",
   "license": "MIT",
-  "repository": "cynthiasantee/react-tournament-bracket-generator",
+  "repository": "cynthiasantee/tournament-bracket-tree",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
