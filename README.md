@@ -1,13 +1,13 @@
-# react-tournament-bracket-generator
+# tournament-bracket-tree
 
 > Renders a simple tournament bracket
 
-[![NPM](https://img.shields.io/npm/v/react-tournament-bracket-generator.svg)](https://www.npmjs.com/package/react-tournament-bracket-generator) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/tournament-bracket-tree.svg)](https://www.npmjs.com/package/tournament-bracket-tree) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save react-tournament-bracket-generator
+npm install --save tournament-bracket-tree
 ```
 
 ## Usage
@@ -15,8 +15,8 @@ npm install --save react-tournament-bracket-generator
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-tournament-bracket-generator'
-import 'react-tournament-bracket-generator/dist/index.css'
+import MyComponent from 'tournament-bracket-tree'
+import 'tournament-bracket-tree/dist/index.css'
 
 class Example extends Component {
   render() {
