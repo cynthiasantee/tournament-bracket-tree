@@ -78,15 +78,15 @@ const App = () => {
 
   const mapShowToNode = (show: Show) => {
     return <div>
-      <a href={show.link}><img height="30px" width="90px" src={show.img} alt="link"/></a>
+      <a href={show.link}><img height="25px" width="50px" src={show.img} alt="link"/></a>
     </div>;
   }
 
   return <div>
-    <BracketGenerator root={"bottom"} mapDataToNode={mapShowToNode} tree={shows}/>
+    <BracketGenerator root={"top"} mapDataToNode={mapShowToNode} tree={shows}/>
 
   </div>
   
 }
 
-export default App
+export default App;

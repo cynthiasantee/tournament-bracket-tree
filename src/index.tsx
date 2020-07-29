@@ -1,14 +1,7 @@
 import * as React from 'react'
 import styles from './styles.module.css'
 import { Tree, TreeWithTags, Root } from './treeInterface'
-
-const Children: React.FC = (props) => {
-  return <div className={styles.children}>
-    {React.Children.map(props.children, comp => {
-      return <div className={styles.child}>{comp}</div>
-    })}
-  </div>
-}
+import { style as generalStyle } from './style'
 
 function calcDepth<T>(tree: TreeWithTags<T>): number {
   switch(tree.tag) {
@@ -25,8 +18,18 @@ function calcDepth<T>(tree: TreeWithTags<T>): number {
 
 type MapDataToNode<T> = (t: T) => React.ReactElement
 
-function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, dummyParent: React.ReactElement, isRoot: boolean, root?: Root): React.ReactElement {
+function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: MapDataToNode<T>, dummyParent: React.ReactElement, isRoot: boolean, root: Root = 'top'): React.ReactElement {
   const rec = (t: TreeWithTags<T>) => toComponent(t, depth - 1, mapDataToNode, dummyParent, false, root);
+
+  const Children: React.FC = (props) => {
+    return <div className={style.children}>
+      {React.Children.map(props.children, comp => {
+        return <div className={styles.child}>{comp}</div>
+      })}
+    </div>
+  }
+
+const style = generalStyle[root];
 
   switch(tree.tag) {
     case 'dummy':
@@ -35,12 +38,12 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
         return <div></div>;
       } else {
         return ( 
-          <div className={root !== "bottom" ? styles.outer : styles.outerBottom}>
-            <div className={styles.spacerContainer}></div>
-        <div className={[styles.parent, styles.hide].join(' ')}>
+          <div className={style.outer}>
+            <div className={style.spacerContainer}></div>
+        <div className={[style.parent, style.hide].join(' ')}>
           <div>{dummyParent}</div>
         </div>
-            <div className={styles.spacerContainer}></div>
+            <div className={style.spacerContainer}></div>
             <Children>
               {rec(tree)}
             </Children>
@@ -49,17 +52,17 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       }
     case 'leaf':
       return (
-        <div className={root !== "bottom" ? styles.outer : styles.outerBottom}>
+        <div className={style.outer}>
 
-          <div className={styles.spacerContainer}>
+          <div className={style.spacerContainer}>
             {
-              !isRoot && <div className={[styles.spacer, styles.borderRight].join(' ')}></div>
+              !isRoot && <div className={[style.spacer, style.borderRight].join(' ')}></div>
             }
-            <div className={styles.spacer}></div>
+            <div className={style.spacer}></div>
           </div>
 
-            <div className={styles.parent}>{mapDataToNode(tree.data)}</div>
-            <div className={styles.spacerContainer}></div>
+            <div className={style.parent}>{mapDataToNode(tree.data)}</div>
+            <div className={style.spacerContainer}></div>
             {
               depth !== 0 && (
               <Children>
@@ -68,24 +71,23 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
               )
             }
 
-
         </div>
       );
     case 'unary':
       return (
-        <div className={root !== "bottom"  ? styles.outer : styles.outerBottom}>
+        <div className={style.outer}>
 
-          <div className={styles.spacerContainer}>
+          <div className={style.spacerContainer}>
           {
-              !isRoot && <div className={[styles.spacer, styles.borderRight].join(' ')}></div>
+              !isRoot && <div className={[style.spacer, style.borderRight].join(' ')}></div>
             }
-            <div className={styles.spacer}></div>
+            <div className={style.spacer}></div>
           </div>
 
-            <div className={styles.parent}>{mapDataToNode(tree.data)}</div>
-            <div className={styles.spacerContainer}>
-            <div className={[styles.spacer, styles.borderRight].join(' ')}></div>
-            <div className={styles.spacer}></div>
+            <div className={style.parent}>{mapDataToNode(tree.data)}</div>
+            <div className={style.spacerContainer}>
+            <div className={[style.spacer, style.borderRight].join(' ')}></div>
+            <div className={style.spacer}></div>
           </div>
             
             <Children>
@@ -97,21 +99,21 @@ function toComponent<T>(tree: TreeWithTags<T>, depth: number, mapDataToNode: Map
       );
     case 'binary':
       return (
-        <div className={root !== "bottom"  ? styles.outer : styles.outerBottom}>
+        <div className={style.outer}>
             
-            <div className={styles.spacerContainer}>
+            <div className={style.spacerContainer}>
             {
-              !isRoot && <div className={[styles.spacer, styles.borderRight].join(' ')}></div>
+              !isRoot && <div className={[style.spacer, style.borderRight].join(' ')}></div>
             }
-            <div className={styles.spacer}></div>
+            <div className={style.spacer}></div>
           </div>
             
-            <div className={styles.parent}>{mapDataToNode(tree.data)}</div>
+            <div className={style.parent}>{mapDataToNode(tree.data)}</div>
 
-            <div className={styles.spacerContainer}>
-            <div className={styles.spacer}></div>
-            <div className={root !== "bottom"  ? [styles.spacer, styles.borderRight, styles.borderBottom].join(' ') : [styles.spacer, styles.borderRight, styles.borderBottomDir].join(' ')}></div>
-            <div className={root !== "bottom"  ? [styles.spacer, styles.borderBottom].join(' ') : [styles.spacer, styles.borderBottomDir].join(' ')}></div>
+            <div className={style.spacerContainer}>
+            <div className={style.spacer}></div>
+            <div className={[style.spacer, style.borderRight, style.hook].join(' ')}></div>
+            <div className={[style.spacer, style.hook].join(' ')}></div>
              <div className={styles.spacer}></div>
              </div>
 
