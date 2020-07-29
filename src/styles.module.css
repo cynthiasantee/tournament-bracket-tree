@@ -1,6 +1,4 @@
-/* add css module styles here (optional) */
-
-
+/* Top */
 .outer {
   display: flex;
   width: 100%;
@@ -8,6 +6,14 @@
   flex-direction: column;
 }
 
+/* Bottom */
+.outerBottom {
+  display: flex;
+  width: 100%;
+  flex-direction: column-reverse;
+}
+
+/* Top and Bottom */
 .parent {
   display: flex;
   justify-content: center;
@@ -25,37 +31,10 @@
   height: 25px;
 }
 
-.spacer {
-  flex: 1;
-}
-
-.borderRight {
-  border-right: 1px solid black;
-}
-
 .children {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.child {
-  flex: 1;
-}
-
-.borderBottom {
-  border-bottom: 1px solid black;
-}
-
-/* Bottom */
-.outerBottom {
-  display: flex;
-  width: 100%;
-  flex-direction: column-reverse;
-}
-
-.borderTop {
-  border-top: 1px solid black;
 }
 
 /* Right */
@@ -65,18 +44,39 @@
   flex-direction: row-reverse;
 }
 
-.parentRight {
+/* Left */
+.outerLeft {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+}
+
+/* Right and Left */
+.parentRightLeft {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.spacerContainerRight {
+.spacerContainerRightLeft {
   display: flex;
   width: 25px;
   flex-direction: column;
 }
 
+.childrenRightLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hideRightLeft {
+  visibility: hidden;
+  height: 0px;
+}
+
+/* Borders */
 .borderBottom {
   border-bottom: 1px solid black;
 }
@@ -85,14 +85,19 @@
   border-left: 1px solid black;
 }
 
-.childrenRight {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.borderTop {
+  border-top: 1px solid black;
 }
 
-.hideRight {
-  visibility: hidden;
-  height: 0px;
+.borderRight {
+  border-right: 1px solid black;
+}
+
+/* In common */
+.child {
+  flex: 1;
+}
+
+.spacer {
+  flex: 1;
 }

@@ -56,7 +56,7 @@ const style = generalStyle[root];
 
           <div className={style.spacerContainer}>
             {
-              !isRoot && <div className={[style.spacer, style.borderRight].join(' ')}></div>
+              !isRoot && <div className={[style.spacer, style.bar].join(' ')}></div>
             }
             <div className={style.spacer}></div>
           </div>
@@ -79,14 +79,14 @@ const style = generalStyle[root];
 
           <div className={style.spacerContainer}>
           {
-              !isRoot && <div className={[style.spacer, style.borderRight].join(' ')}></div>
+              !isRoot && <div className={[style.spacer, style.bar].join(' ')}></div>
             }
             <div className={style.spacer}></div>
           </div>
 
             <div className={style.parent}>{mapDataToNode(tree.data)}</div>
             <div className={style.spacerContainer}>
-            <div className={[style.spacer, style.borderRight].join(' ')}></div>
+            <div className={[style.spacer, style.bar].join(' ')}></div>
             <div className={style.spacer}></div>
           </div>
             
@@ -103,7 +103,7 @@ const style = generalStyle[root];
             
             <div className={style.spacerContainer}>
             {
-              !isRoot && <div className={[style.spacer, style.borderRight].join(' ')}></div>
+              !isRoot && <div className={[style.spacer, style.bar].join(' ')}></div>
             }
             <div className={style.spacer}></div>
           </div>
@@ -112,7 +112,7 @@ const style = generalStyle[root];
 
             <div className={style.spacerContainer}>
             <div className={style.spacer}></div>
-            <div className={[style.spacer, style.borderRight, style.hook].join(' ')}></div>
+            <div className={[style.spacer, style.bar, style.hook].join(' ')}></div>
             <div className={[style.spacer, style.hook].join(' ')}></div>
              <div className={styles.spacer}></div>
              </div>
