@@ -82,7 +82,7 @@ const App = () => {
   }
 
   return <div style={{height: '100%'}}>
-    <BracketGenerator root={"bottom"} mapDataToNode={mapShowToNode} tree={shows}/>
+    <BracketGenerator root={"right"} mapDataToNode={mapShowToNode} tree={shows}/>
 
   </div>
   
