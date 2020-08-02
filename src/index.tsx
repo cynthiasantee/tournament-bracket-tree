@@ -171,4 +171,4 @@ export function BracketGenerator<T>(props: Props<T>) {
   return toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, dummyParent, true,  props.root);
 }
 
-export * from './treeInterface';
+export {Tree} from './treeInterface';
