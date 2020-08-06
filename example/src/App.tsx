@@ -31,12 +31,12 @@ const App = () => {
         },
         left: {
           data: {
-            img: 'https://upload.wikimedia.org/wikipedia/en/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
+            img: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
             link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
           },
           left: {
             data: {
-              img: 'https://upload.wikimedia.org/wikipedia/en/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
+              img: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
               link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
             }
           }
@@ -56,12 +56,12 @@ const App = () => {
       },
       left: {
         data: {
-          img: 'https://upload.wikimedia.org/wikipedia/en/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
+          img: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
           link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
         },
         left: {
           data: {
-            img: 'https://upload.wikimedia.org/wikipedia/en/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
+            img: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
             link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
           }
         }

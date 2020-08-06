@@ -40,7 +40,7 @@ const style = generalStyle[root];
         return ( 
           <div className={style.outer}>
             <div className={style.spacerContainer}></div>
-        <div className={[style.parent, style.hide].join(' ')}>
+        <div className={[style.parent, style.hide].join(' ')} id="dummy">
           <div>{dummyParent}</div>
         </div>
             <div className={style.spacerContainer}></div>
@@ -163,12 +163,33 @@ export function BracketGenerator<T>(props: Props<T>) {
     }
   }
 
+
   const treeWithTags = tagTree(props.tree)
-  console.log(treeWithTags);
 
   const dummyParent = props.mapDataToNode(props.tree.data)
 
-  return toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, dummyParent, true,  props.root);
+
+
+    // const elmnt = document.getElementById("dummy")
+    // if (elmnt) {
+    //   const height = elmnt.offsetHeight
+    //   ReactDOM.render(dummyParent, elmnt);
+    //   console.log(`elmnt: ${height}`)
+    // }
+
+
+    // const element = <h1>Hello, world</h1>; 
+    // const doc = document.getElementById('root')
+    // const height = document.getElementById('root').offsetHeight
+    // console.log(height)
+    // ReactDOM.render(element, doc);   
+
+  return (
+    <div className={styles.container}>
+        {toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, dummyParent, true,  props.root)};
+    </div>
+  )
+  
 }
 
 export {Tree} from './treeInterface';

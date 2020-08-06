@@ -1,3 +1,8 @@
+/* Container */
+.container {
+  height: 100%;
+}
+
 /* Top */
 .outer {
   display: flex;
@@ -74,7 +79,7 @@
 
 .hideRightLeft {
   visibility: hidden;
-  height: 0px;
+  /* height: 0px; */
 }
 
 /* Borders */
@@ -101,4 +106,9 @@
 
 .spacer {
   flex: 1;
+}
+
+/* Fix 1px off spacer */
+.spacerContainerRightLeft :nth-child(3) {
+  padding-top: 1px;
 }
