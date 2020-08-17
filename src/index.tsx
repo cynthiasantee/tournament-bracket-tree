@@ -163,30 +163,13 @@ export function BracketGenerator<T>(props: Props<T>) {
     }
   }
 
-
   const treeWithTags = tagTree(props.tree)
 
   const dummyParent = props.mapDataToNode(props.tree.data)
 
-
-
-    // const elmnt = document.getElementById("dummy")
-    // if (elmnt) {
-    //   const height = elmnt.offsetHeight
-    //   ReactDOM.render(dummyParent, elmnt);
-    //   console.log(`elmnt: ${height}`)
-    // }
-
-
-    // const element = <h1>Hello, world</h1>; 
-    // const doc = document.getElementById('root')
-    // const height = document.getElementById('root').offsetHeight
-    // console.log(height)
-    // ReactDOM.render(element, doc);   
-
   return (
     <div className={styles.container}>
-        {toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, dummyParent, true,  props.root)};
+        {toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, dummyParent, true,  props.root)}
     </div>
   )
   

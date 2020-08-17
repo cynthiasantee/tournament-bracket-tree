@@ -78,7 +78,7 @@ const App = () => {
   const mapShowToNode = (show: Show) => {
     return <div>
       <a href={show.link}><img height="50px" width="200px" src={show.img} alt="link"/></a>
-    </div>;
+    </div>
   }
 
   return <div style={{height: '100%'}}>
