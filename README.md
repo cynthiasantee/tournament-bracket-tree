@@ -12,7 +12,7 @@ npm install --save tournament-bracket-tree
 
 ## Important information
 
-* ```tournament-bracket tree```only supports binary trees
+* ```tournament-bracket tree```only supports binary trees
 * The tree does not have to be balanced
 * The content of the node is 100% customizable
 * All nodes must be the same size
@@ -59,18 +59,18 @@ import 'tournament-bracket-tree/dist/index.css';
 <BracketGenerator root={"left"} mapDataToNode={mapMyDataToNode} tree={your-tree}/>
 ```
 
-### BracketGenerator Props
+### BracketGenerator Props
 Where on the page you want your fist node to show:
 
 `root = "top" | "bottom" | "left" | "right"`
 
 Function to construct a single node:
 
-`mapDataToNode = <your-function>`
+`mapDataToNode = <your-function>`
 
 Your data tree:
 
-`tree = <your-tree>`
+`tree = <your-tree>`
 
 
 ### Important observations
@@ -80,7 +80,7 @@ If you are using "<i>root</i>" as <b>right</b> or <b>left</b>:
 If you are using "<i>root</i>" as <b>top</b> or <b>bottom</b>:
 * You can set the width of its container. If not, it will take 100% of its parent width. 
 
-![alt tag](https://github.com/cynthiasantee/tournament-bracket-tree/src/images/basic.png)
+![alt tag](https://github.com/cynthiasantee/tournament-bracket-tree/blob/master/src/images/basic.png?raw=true)
 
 
 ## License
