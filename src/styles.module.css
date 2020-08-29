@@ -112,3 +112,7 @@
 .spacerContainerRightLeft :nth-child(3) {
   padding-top: 1px;
 }
+
+.spacerContainer :nth-child(3){
+  padding-left: 1px;
+}

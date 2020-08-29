@@ -4,88 +4,92 @@ import 'tournament-bracket-tree/dist/index.css';
 
 const App = () => {
 
-  interface Show {
-    img: string;
-    link: string;
+  // define your type for one single node
+  interface Game {
+    teamOne: string;
+    scoreTeamOne: number;
+    teamTwo: string;
+    scoreTeamTwo: number
   }
-  const shows: Tree<Show> = {
-    data: {
-      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/This_Is_Us_%28Logo%29.png/500px-This_Is_Us_%28Logo%29.png',
-      link: 'https://en.wikipedia.org/wiki/This_Is_Us'
-    },
-    left: {
+  
+  //construct your tree
+  const tournament: Tree<Game> = {
       data: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/This_Is_Us_%28Logo%29.png/500px-This_Is_Us_%28Logo%29.png',
-        link: 'https://en.wikipedia.org/wiki/This_Is_Us'
+        teamOne: "Team Thirteen",
+        scoreTeamOne: 42,
+        teamTwo: "Team Fourteen",
+        scoreTeamTwo: 30,
       },
       left: {
         data: {
-          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/This_Is_Us_%28Logo%29.png/500px-This_Is_Us_%28Logo%29.png',
-          link: 'https://en.wikipedia.org/wiki/This_Is_Us'
-        }
-      },
-      right: {
-        data: {
-          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NewGirlTitlesS5.jpg/500px-NewGirlTitlesS5.jpg',
-          link: 'https://en.wikipedia.org/wiki/New_Girl'
+          teamOne: "Team Nine",
+          scoreTeamOne: 25,
+          teamTwo: "Team Ten",
+          scoreTeamTwo: 32,
         },
         left: {
           data: {
-            img: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
-            link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
-          },
-          left: {
-            data: {
-              img: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
-              link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
-            }
+            teamOne: "Team One",
+            scoreTeamOne: 22,
+            teamTwo: "Team Two",
+            scoreTeamTwo: 39,
           }
         },
         right: {
           data: {
-            img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NewGirlTitlesS5.jpg/500px-NewGirlTitlesS5.jpg',
-            link: 'https://en.wikipedia.org/wiki/New_Girl'
-          }
-        }
-      }
-    },
-    right: {
-      data: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NewGirlTitlesS5.jpg/500px-NewGirlTitlesS5.jpg',
-        link: 'https://en.wikipedia.org/wiki/New_Girl'
-      },
-      left: {
-        data: {
-          img: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
-          link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
-        },
-        left: {
-          data: {
-            img: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Title_screen_for_Netflix%27s_Dead_to_Me.png',
-            link: 'https://en.wikipedia.org/wiki/Dead_to_Me_(TV_series)'
-          }
+            teamOne: "Team Three",
+            scoreTeamOne: 42,
+            teamTwo: "Team Four",
+            scoreTeamTwo: 33,
+          },
         }
       },
       right: {
         data: {
-          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NewGirlTitlesS5.jpg/500px-NewGirlTitlesS5.jpg',
-          link: 'https://en.wikipedia.org/wiki/New_Girl'
+          teamOne: "Team Eleven",
+          scoreTeamOne: 21,
+          teamTwo: "Team Twelve",
+          scoreTeamTwo: 35,
+        },
+        left: {
+          data: {
+            teamOne: "Team Five",
+            scoreTeamOne: 22,
+            teamTwo: "Team Six",
+            scoreTeamTwo: 21,
+          },
+        },
+        right: {
+          data: {
+            teamOne: "Team Seven",
+            scoreTeamOne: 34,
+            teamTwo: "Team Eight",
+            scoreTeamTwo: 27,
+          }
         }
       }
     }
-  }
+    
+    //style one single node
+    const mapShowToNode = (game: Game) => {
+      return(
+        //don't forget to have a standard height and width for all nodes
+        <div style={{border: "1px solid black", height: "50px", width: "150px", display: "flex", flexDirection: "column"}}>
+          <div style={{flex: 1, display: "flex", justifyContent: "space-between"}}>
+            <p style={{margin: 0, paddingLeft: "2px"}}>{game.teamOne}</p>
+            <p style={{margin: 0, paddingRight: "2px"}}>{game.scoreTeamOne}</p>
+        </div>
+        <div style={{flex: 1, borderTop: "1px solid black", display: "flex", justifyContent: "space-between"}}>
+          <p style={{margin: 0, paddingLeft: "2px"}}>{game.teamTwo}</p>
+          <p style={{margin: 0, paddingRight: "2px"}}>{game.scoreTeamTwo}</p>
+        </div>
+      </div>
+      )
+    }
 
-  const mapShowToNode = (show: Show) => {
-    return <div>
-      <a href={show.link}><img height="50px" width="200px" src={show.img} alt="link"/></a>
-    </div>
-  }
-
-  return <div style={{height: '100%'}}>
-    <BracketGenerator root={"right"} mapDataToNode={mapShowToNode} tree={shows}/>
-
-  </div>
-  
+    return <div style={{height: "500px", overflow: "scroll"}}>
+      <BracketGenerator root={"right"} mapDataToNode={mapShowToNode} tree={tournament}/>
+    </div> 
 }
 
 export default App;
