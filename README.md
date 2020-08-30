@@ -82,6 +82,9 @@ If you are using "<i>root</i>" as <b>top</b> or <b>bottom</b>:
 
 ![alt tag](https://github.com/cynthiasantee/tournament-bracket-tree/blob/master/src/images/basic.png?raw=true)
 
+### Run Example
+* Node version required >= v12.18.0
+
 ### To Do
 * Add testing
 * Add customization of lines
