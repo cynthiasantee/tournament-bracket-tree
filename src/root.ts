@@ -1,0 +1,1 @@
+export type Root = "top" | "bottom" | "right" | "left";

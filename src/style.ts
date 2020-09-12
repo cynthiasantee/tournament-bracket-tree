@@ -1,25 +1,25 @@
 import styles from './styles.module.css'
 
-export const style = ({
+export const style = {
     top: {
-      outer: styles.outer,
-      parent: styles.parent,
-      hide: styles.hide,
-      spacerContainer: styles.spacerContainer,
-      spacer: styles.spacer,
-      bar: styles.borderRight,
-      hook: styles.borderBottom,
-      children: styles.children
+        outer: styles.outer,
+        parent: styles.parent,
+        hide: styles.hide,
+        spacerContainer: styles.spacerContainer,
+        spacer: styles.spacer,
+        bar: styles.borderRight,
+        hook: styles.borderBottom,
+        children: styles.children
     },
     bottom: {
-      outer: styles.outerBottom,
-      parent: styles.parent,
-      hide: styles.hide,
-      spacerContainer: styles.spacerContainer,
-      spacer: styles.spacer,
-      bar: styles.borderRight,
-      hook: styles.borderTop,
-      children: styles.children
+        outer: styles.outerBottom,
+        parent: styles.parent,
+        hide: styles.hide,
+        spacerContainer: styles.spacerContainer,
+        spacer: styles.spacer,
+        bar: styles.borderRight,
+        hook: styles.borderTop,
+        children: styles.children
     },
     left: {
         outer: styles.outerLeft,
@@ -29,9 +29,9 @@ export const style = ({
         spacer: styles.spacer,
         bar: styles.borderBottom,
         hook: styles.borderRight,
-        children: styles.childrenRightLeft,
+        children: styles.childrenRightLeft
     },
-    right: {    
+    right: {
         outer: styles.outerRight,
         parent: styles.parentRightLeft,
         hide: styles.hideRightLeft,
@@ -39,6 +39,6 @@ export const style = ({
         spacer: styles.spacer,
         bar: styles.borderBottom,
         hook: styles.borderLeft,
-        children: styles.childrenRightLeft,
+        children: styles.childrenRightLeft
     }
-    });
+}

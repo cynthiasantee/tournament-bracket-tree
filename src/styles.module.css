@@ -1,118 +1,126 @@
 /* Container */
 .container {
-  height: 100%;
+    height: 100%;
 }
 
 /* Top */
 .outer {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
 }
 
 /* Bottom */
 .outerBottom {
-  display: flex;
-  width: 100%;
-  flex-direction: column-reverse;
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
 }
 
 /* Top and Bottom */
 .parent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hide {
-  visibility: hidden;
-  width: 0px;
+    visibility: hidden;
+    width: 0px;
 }
 
 .spacerContainer {
-  display: flex;
-  width: 100%;
-  height: 25px;
+    display: flex;
+    width: 100%;
+    /* change */
+    height: 25px;
 }
 
 .children {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Right */
 .outerRight {
-  display: flex;
-  height: 100%;
-  flex-direction: row-reverse;
-  float: left;
+    display: flex;
+    height: 100%;
+    flex-direction: row-reverse;
+    float: left;
 }
 
 /* Left */
 .outerLeft {
-  display: flex;
-  height: 100%;
-  flex-direction: row;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
 }
 
 /* Right and Left */
 .parentRightLeft {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .spacerContainerRightLeft {
-  display: flex;
-  width: 25px;
-  flex-direction: column;
+    display: flex;
+    /* change */
+    width: 25px;
+    flex-direction: column;
 }
 
 .childrenRightLeft {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .hideRightLeft {
-  visibility: hidden;
-  /* height: 0px; */
+    visibility: hidden;
+    /* height: 0px; */
 }
 
-/* Borders */
+/* Borders change these four*/
 .borderBottom {
-  border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .borderLeft {
-  border-left: 1px solid black;
+    border-left: 1px solid black;
 }
 
 .borderTop {
-  border-top: 1px solid black;
+    border-top: 1px solid black;
 }
 
 .borderRight {
-  border-right: 1px solid black;
+    border-right: 1px solid black;
 }
 
 /* In common */
 .child {
-  flex: 1;
+    flex: 1;
 }
 
 .spacer {
-  flex: 1;
+    flex: 1;
 }
 
-/* Fix 1px off spacer */
+/* Fix 1px off spacer
 .spacerContainerRightLeft :nth-child(3) {
-  padding-top: 1px;
+    padding-top: 1px;
 }
 
-.spacerContainer :nth-child(3){
-  padding-left: 1px;
+.spacerContainer :nth-child(3) {
+    padding-left: 1px;
+} */
+
+.separator {
+    height: 1px;
+    width: 100%;
+    background-color: black;
 }
