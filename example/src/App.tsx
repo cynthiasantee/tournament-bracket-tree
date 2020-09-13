@@ -6,8 +6,8 @@ import { myTree } from './myTree'
 
 const App = () => {
     return (
-        <div style={{ height: '500px', overflow: 'scroll' }}>
-            <TreeGenerator root={'right'} mapDataToNode={mapTournamentToNode} tree={myTree} />
+        <div style={{}}>
+            <TreeGenerator root={'top'} mapDataToNode={mapTournamentToNode} tree={myTree} />
         </div>
     )
 }

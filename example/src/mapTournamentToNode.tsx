@@ -12,7 +12,7 @@ export const mapTournamentToNode = (game: Game) => {
                 width: '150px',
                 display: 'flex',
                 flexDirection: 'column',
-                margin: '10px 0'
+                margin: '0px 0'
             }}
         >
             <div
@@ -23,9 +23,7 @@ export const mapTournamentToNode = (game: Game) => {
                 }}
             >
                 <p style={{ margin: 0, paddingLeft: '2px' }}>{game.teamOne}</p>
-                <p style={{ margin: 0, paddingRight: '2px' }}>
-                    {game.scoreTeamOne}
-                </p>
+                <p style={{ margin: 0, paddingRight: '2px' }}>{game.scoreTeamOne}</p>
             </div>
             <div
                 style={{
@@ -36,9 +34,7 @@ export const mapTournamentToNode = (game: Game) => {
                 }}
             >
                 <p style={{ margin: 0, paddingLeft: '2px' }}>{game.teamTwo}</p>
-                <p style={{ margin: 0, paddingRight: '2px' }}>
-                    {game.scoreTeamTwo}
-                </p>
+                <p style={{ margin: 0, paddingRight: '2px' }}>{game.scoreTeamTwo}</p>
             </div>
         </div>
     )

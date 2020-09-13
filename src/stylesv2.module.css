@@ -1,0 +1,103 @@
+.flex {
+    display: flex;
+}
+
+.flex .center {
+    align-items: center;
+    justify-content: center;
+}
+
+.left .container {
+    flex-direction: row;
+}
+
+.right .container {
+    flex-direction: row-reverse;
+    float: left;
+}
+
+.top .container {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.bottom .container {
+    flex-direction: column-reverse;
+    width: 100%;
+}
+
+.right .container,
+.left .container {
+    height: 100%;
+}
+
+.container {
+}
+
+.left .entrySpacer,
+.right .entrySpacer,
+.left .exitSpacer,
+.right .exitSpacer {
+    height: 100%;
+    width: 25px;
+}
+
+.top .entrySpacer,
+.bottom .entrySpacer,
+.top .exitSpacer,
+.bottom .exitSpacer {
+    height: 25px;
+    width: 100%;
+}
+
+.exitSpacer {
+}
+
+.top .line,
+.bottom .line {
+    height: 100%;
+    width: 1px;
+}
+
+.left .line,
+.right .line {
+    height: 1px;
+    width: 100%;
+}
+
+.line {
+    background-color: black;
+}
+
+.top .lineContainer,
+.bottom .lineContainer {
+    height: 100%;
+    width: 50%;
+}
+
+.left .lineContainer,
+.right .lineContainer {
+    height: 50%;
+    width: 100%;
+}
+
+.top .lineContainer {
+    border-bottom: 1px solid black;
+}
+
+.bottom .lineContainer {
+    border-top: 1px solid black;
+}
+
+.left .lineContainer {
+    border-right: 1px solid black;
+}
+
+.right .lineContainer {
+    border-left: 1px solid black;
+}
+
+.child {
+    flex: 1;
+}
