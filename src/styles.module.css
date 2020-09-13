@@ -102,11 +102,11 @@
 
 /* In common */
 .child {
-    flex: 1;
+    flex: 1 1 0;
 }
 
 .spacer {
-    flex: 1;
+    flex: 1 1 0;
 }
 
 /* Fix 1px off spacer

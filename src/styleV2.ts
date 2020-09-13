@@ -12,5 +12,8 @@ export const style = {
     exitSpacer: styles.exitSpacer,
     line: styles.line,
     lineContainer: styles.lineContainer,
-    child: styles.child
+    child: styles.child,
+    inlineBlock: styles.inlineBlock,
+    column: styles.column,
+    hide: styles.hide
 }

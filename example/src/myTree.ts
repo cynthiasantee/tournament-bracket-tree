@@ -97,8 +97,8 @@ const balancedTree = (levels: number): Tree<Game> => {
 //         teamTwo: 'Team Fourteen',
 //         scoreTeamTwo: 30
 //     },
-//     left: balancedTree(2),
-//     right: balancedTree(5)
+//     left: balancedTree(1),
+//     right: balancedTree(4)
 // }
 
-export const myTree: Tree<Game> = balancedTree(5)
+export const myTree: Tree<Game> = balancedTree(3)

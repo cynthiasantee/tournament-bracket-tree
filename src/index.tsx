@@ -5,11 +5,15 @@ import { TreeWithTags } from './treeADT'
 import { Root } from './root'
 import { toComponent, MapDataToNode } from './toComponentV2'
 import { calcDepth } from './calcDepth'
+import cx from 'classnames'
 
 interface Props<T> {
     root?: Root
     mapDataToNode: MapDataToNode<T>
     tree: Tree<T>
+    lineThickness?: number
+    lineColor?: string
+    lineStyle?: string
 }
 
 export function TreeGenerator<T>(props: Props<T>) {
@@ -44,10 +48,25 @@ export function TreeGenerator<T>(props: Props<T>) {
     const treeWithTags = tagTree(props.tree)
     const dummyParent = props.mapDataToNode(props.tree.data)
 
+    const orientation = {
+        left: styleV2.left,
+        right: styleV2.right,
+        top: styleV2.top,
+        bottom: styleV2.bottom
+    }[props.root || 'top']
+
     return (
-        <div className={styleV2.top}>
-            <div className={styleV2.container}></div>
-            {toComponent(treeWithTags, calcDepth(treeWithTags), props.mapDataToNode, dummyParent, true, props.root)}
+        <div className={cx(orientation, (props.root === 'top' || props.root === 'bottom') && styleV2.inlineBlock)}>
+            {toComponent(
+                treeWithTags,
+                calcDepth(treeWithTags),
+                props.mapDataToNode,
+                dummyParent,
+                props.root,
+                props.lineThickness,
+                props.lineColor,
+                props.lineStyle
+            )}
         </div>
     )
 }

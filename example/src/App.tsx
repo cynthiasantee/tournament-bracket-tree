@@ -6,9 +6,14 @@ import { myTree } from './myTree'
 
 const App = () => {
     return (
-        <div style={{}}>
-            <TreeGenerator root={'top'} mapDataToNode={mapTournamentToNode} tree={myTree} />
-        </div>
+        <TreeGenerator
+            root={'left'}
+            mapDataToNode={mapTournamentToNode}
+            tree={myTree}
+            lineThickness={2}
+            lineColor="red"
+            lineStyle="dashed"
+        />
     )
 }
 

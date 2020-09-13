@@ -12,7 +12,7 @@ export const mapTournamentToNode = (game: Game) => {
                 width: '150px',
                 display: 'flex',
                 flexDirection: 'column',
-                margin: '0px 0'
+                margin: '10px 0px'
             }}
         >
             <div

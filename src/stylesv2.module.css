@@ -7,6 +7,14 @@
     justify-content: center;
 }
 
+.column {
+    flex-direction: column;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
 .left .container {
     flex-direction: row;
 }
@@ -19,12 +27,11 @@
 .top .container {
     flex-direction: column;
     height: 100%;
-    width: 100%;
 }
 
 .bottom .container {
     flex-direction: column-reverse;
-    width: 100%;
+    height: 100%;
 }
 
 .right .container,
@@ -32,15 +39,12 @@
     height: 100%;
 }
 
-.container {
-}
-
 .left .entrySpacer,
 .right .entrySpacer,
 .left .exitSpacer,
 .right .exitSpacer {
-    height: 100%;
-    width: 25px;
+    min-height: 100%;
+    min-width: 25px;
 }
 
 .top .entrySpacer,
@@ -51,53 +55,69 @@
     width: 100%;
 }
 
-.exitSpacer {
-}
-
 .top .line,
 .bottom .line {
+    border: 1px solid black;
+    border-left: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
     height: 100%;
-    width: 1px;
+    width: 0px;
 }
 
 .left .line,
 .right .line {
-    height: 1px;
+    border: 1px solid black;
+    border-left: none !important;
+    border-bottom: none !important;
+    border-right: none !important;
+    height: 0px;
     width: 100%;
-}
-
-.line {
-    background-color: black;
 }
 
 .top .lineContainer,
 .bottom .lineContainer {
     height: 100%;
-    width: 50%;
+    width: calc(50% - 5px);
 }
 
 .left .lineContainer,
 .right .lineContainer {
-    height: 50%;
+    height: calc(50% - 5px);
     width: 100%;
 }
 
 .top .lineContainer {
-    border-bottom: 1px solid black;
+    border: 1px solid black;
+    border-bottom: none !important;
 }
 
 .bottom .lineContainer {
-    border-top: 1px solid black;
+    border: 1px solid black;
+    border-top: none !important;
 }
 
 .left .lineContainer {
-    border-right: 1px solid black;
+    border: 1px solid black;
+    border-right: none !important;
 }
 
 .right .lineContainer {
-    border-left: 1px solid black;
+    border: 1px solid black;
+    border-left: none !important;
 }
 
 .child {
-    flex: 1;
+    flex: 1 1 0;
+}
+
+.left .hide,
+.right .hide {
+    visibility: hidden;
+}
+
+.top .hide,
+.bottom .hide {
+    visibility: hidden;
+    /* width: 0px; */
 }
