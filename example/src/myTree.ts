@@ -101,4 +101,4 @@ const balancedTree = (levels: number): Tree<Game> => {
 //     right: balancedTree(4)
 // }
 
-export const myTree: Tree<Game> = balancedTree(3)
+export const myTree: Tree<Game> = balancedTree(5)

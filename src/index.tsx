@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { style as styleV2 } from './styleV2'
+import { style } from './style'
 import { Tree } from './tree'
 import { TreeWithTags } from './treeADT'
 import { Root } from './root'
-import { toComponent, MapDataToNode } from './toComponentV2'
+import { toComponent, MapDataToNode } from './toComponent'
 import { calcDepth } from './calcDepth'
 import cx from 'classnames'
 
@@ -14,6 +14,7 @@ interface Props<T> {
     lineThickness?: number
     lineColor?: string
     lineStyle?: string
+    lineLength?: number
 }
 
 export function TreeGenerator<T>(props: Props<T>) {
@@ -49,14 +50,14 @@ export function TreeGenerator<T>(props: Props<T>) {
     const dummyParent = props.mapDataToNode(props.tree.data)
 
     const orientation = {
-        left: styleV2.left,
-        right: styleV2.right,
-        top: styleV2.top,
-        bottom: styleV2.bottom
+        left: style.left,
+        right: style.right,
+        top: style.top,
+        bottom: style.bottom
     }[props.root || 'top']
 
     return (
-        <div className={cx(orientation, (props.root === 'top' || props.root === 'bottom') && styleV2.inlineBlock)}>
+        <div className={cx(orientation, (props.root === 'top' || props.root === 'bottom') && style.inlineBlock)}>
             {toComponent(
                 treeWithTags,
                 calcDepth(treeWithTags),
@@ -65,7 +66,8 @@ export function TreeGenerator<T>(props: Props<T>) {
                 props.root,
                 props.lineThickness,
                 props.lineColor,
-                props.lineStyle
+                props.lineStyle,
+                props.lineLength
             )}
         </div>
     )

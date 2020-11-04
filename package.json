@@ -1,6 +1,6 @@
 {
   "name": "tournament-bracket-tree",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Renders a simple tournament bracket",
   "author": "cynthiasantee",
   "license": "MIT",

@@ -7,12 +7,13 @@ import { myTree } from './myTree'
 const App = () => {
     return (
         <TreeGenerator
-            root={'left'}
+            root={'right'}
             mapDataToNode={mapTournamentToNode}
             tree={myTree}
-            lineThickness={2}
+            lineThickness={1}
             lineColor="red"
-            lineStyle="dashed"
+            lineStyle="solid"
+            lineLength={50}
         />
     )
 }

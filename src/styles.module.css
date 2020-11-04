@@ -1,125 +1,123 @@
-/* Container */
-.container {
-    height: 100%;
+.flex {
+    display: flex;
 }
 
-/* Top */
-/* .outer {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-} */
-
-/* Bottom */
-/* .outerBottom {
-    display: flex;
-    width: 100%;
-    flex-direction: column-reverse;
-} */
-
-/* Top and Bottom */
-.parent {
-    display: flex;
-    justify-content: center;
+.flex .center {
     align-items: center;
+    justify-content: center;
 }
 
-.hide {
-    visibility: hidden;
+.column {
+    flex-direction: column;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.left .container {
+    flex-direction: row;
+}
+
+.right .container {
+    flex-direction: row-reverse;
+    float: left;
+}
+
+.top .container {
+    flex-direction: column;
+    height: 100%;
+}
+
+.bottom .container {
+    flex-direction: column-reverse;
+    height: 100%;
+}
+
+.right .container,
+.left .container {
+    height: 100%;
+}
+
+.left .entrySpacer,
+.right .entrySpacer,
+.left .exitSpacer,
+.right .exitSpacer {
+    min-height: 100%;
+    min-width: 25px;
+}
+
+.top .entrySpacer,
+.bottom .entrySpacer,
+.top .exitSpacer,
+.bottom .exitSpacer {
+    height: 25px;
+    width: 100%;
+}
+
+.top .line,
+.bottom .line {
+    border: 1px solid black;
+    border-left: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    height: 100%;
     width: 0px;
 }
 
-/* .spacerContainer {
-    display: flex;
+.left .line,
+.right .line {
+    border: 1px solid black;
+    border-left: none !important;
+    border-bottom: none !important;
+    border-right: none !important;
+    height: 0px;
     width: 100%;
-    /* change */
-/* height: 25px;
-} */
-
-.children {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Right */
-/* .outerRight {
-    display: flex;
+.top .lineContainer,
+.bottom .lineContainer {
     height: 100%;
-    flex-direction: row-reverse;
-    float: left;
-} */
-
-/* Left */
-/* .outerLeft {
-    display: flex;
-    height: 100%;
-    flex-direction: row;
-} */
-
-/* Right and Left */
-.parentRightLeft {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: calc(50% - 5px);
 }
 
-/* .spacerContainerRightLeft {
-    display: flex;
-    /* change */
-/* width: 25px;
-    flex-direction: column;
-} */
-*/ .childrenRightLeft {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.left .lineContainer,
+.right .lineContainer {
+    height: calc(50% - 5px);
+    width: 100%;
 }
 
-.hideRightLeft {
-    visibility: hidden;
-    /* height: 0px; */
+.top .lineContainer {
+    border: 1px solid black;
+    border-bottom: none !important;
 }
 
-/* Borders change these four*/
-.borderBottom {
-    border-bottom: 1px solid black;
+.bottom .lineContainer {
+    border: 1px solid black;
+    border-top: none !important;
 }
 
-.borderLeft {
-    border-left: 1px solid black;
+.left .lineContainer {
+    border: 1px solid black;
+    border-right: none !important;
 }
 
-.borderTop {
-    border-top: 1px solid black;
+.right .lineContainer {
+    border: 1px solid black;
+    border-left: none !important;
 }
 
-.borderRight {
-    border-right: 1px solid black;
-}
-
-/* In common */
 .child {
     flex: 1 1 0;
 }
 
-.spacer {
-    flex: 1 1 0;
+.left .hide,
+.right .hide {
+    visibility: hidden;
 }
 
-/* Fix 1px off spacer
-.spacerContainerRightLeft :nth-child(3) {
-    padding-top: 1px;
-}
-
-.spacerContainer :nth-child(3) {
-    padding-left: 1px;
-} */
-
-.separator {
-    height: 1px;
-    width: 100%;
-    background-color: black;
+.top .hide,
+.bottom .hide {
+    visibility: hidden;
+    /* width: 0px; */
 }

@@ -4,7 +4,8 @@ import { Game } from './myTree'
 //style one single node
 export const mapTournamentToNode = (game: Game) => {
     return (
-        //don't forget to add top and bottom margins to the outer container
+        //don't forget to add margins to the outer container
+        //tip: using flexbox helps to make it responsive
         <div
             style={{
                 border: '1px solid black',
@@ -12,7 +13,7 @@ export const mapTournamentToNode = (game: Game) => {
                 width: '150px',
                 display: 'flex',
                 flexDirection: 'column',
-                margin: '10px 0px'
+                margin: '10px 0'
             }}
         >
             <div
