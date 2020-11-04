@@ -1,7 +1,7 @@
-import { BracketGenerator } from '.'
+import { TreeGenerator } from '.'
 
-describe('BracketGeneratort', () => {
+describe('TreeGeneratort', () => {
   it('is truthy', () => {
-    expect(BracketGenerator).toBeTruthy()
+    expect(TreeGenerator).toBeTruthy()
   })
 })
