@@ -1,44 +1,19 @@
 import styles from './styles.module.css'
 
-export const style = ({
-    top: {
-      outer: styles.outer,
-      parent: styles.parent,
-      hide: styles.hide,
-      spacerContainer: styles.spacerContainer,
-      spacer: styles.spacer,
-      bar: styles.borderRight,
-      hook: styles.borderBottom,
-      children: styles.children
-    },
-    bottom: {
-      outer: styles.outerBottom,
-      parent: styles.parent,
-      hide: styles.hide,
-      spacerContainer: styles.spacerContainer,
-      spacer: styles.spacer,
-      bar: styles.borderRight,
-      hook: styles.borderTop,
-      children: styles.children
-    },
-    left: {
-        outer: styles.outerLeft,
-        parent: styles.parentRightLeft,
-        hide: styles.hideRightLeft,
-        spacerContainer: styles.spacerContainerRightLeft,
-        spacer: styles.spacer,
-        bar: styles.borderBottom,
-        hook: styles.borderRight,
-        children: styles.childrenRightLeft,
-    },
-    right: {    
-        outer: styles.outerRight,
-        parent: styles.parentRightLeft,
-        hide: styles.hideRightLeft,
-        spacerContainer: styles.spacerContainerRightLeft,
-        spacer: styles.spacer,
-        bar: styles.borderBottom,
-        hook: styles.borderLeft,
-        children: styles.childrenRightLeft,
-    }
-    });
+export const style = {
+    flex: styles.flex,
+    center: styles.center,
+    top: styles.top,
+    bottom: styles.bottom,
+    left: styles.left,
+    right: styles.right,
+    container: styles.container,
+    entrySpacer: styles.entrySpacer,
+    exitSpacer: styles.exitSpacer,
+    line: styles.line,
+    lineContainer: styles.lineContainer,
+    child: styles.child,
+    inlineBlock: styles.inlineBlock,
+    column: styles.column,
+    hide: styles.hide
+}
